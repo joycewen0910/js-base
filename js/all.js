@@ -382,7 +382,7 @@ js8_1();
 
 //js8-2
 function js8_2(){
-    //**//.querySelectorAll()多筆DOM需執行時使用，以 陣列array 的方式執行
+    //**//.querySelectorAll()多筆DOM需執行時使用，以 陣列array 的方式執行 (以 Array 方式回傳)
     var seA = document.querySelectorAll(".js8-2H2");
     console.log(seA);
     //seA[0].textContent = "querySelectorAll111";
@@ -394,7 +394,7 @@ function js8_2(){
     }
     var se = document.querySelector(".js8-2 a");
     console.log(se.getAttribute("href"));
-    se.setAttribute("href","https://tw.yahoo.com/")
+    se.setAttribute("href", "https://tw.yahoo.com/"); //**// 動態變更或新增 Html 的屬性時使用
     console.log("利用.setAttribute()改變屬性後的連結>>" + se.getAttribute("href"));
 }
 js8_2();
@@ -430,3 +430,39 @@ function js8_5() {
     document.querySelector(".js8-5").innerHTML = dollHtml;//**//利用上面的 += 紀錄後就可以顯示多筆資料
  }
 js8_5();
+
+//js8-6
+function js8_6(){
+    var addEm = document.createElement('h2'); //**//建立一個節點(新增元素)
+    addEm.textContent = '利用js增加的文字！';
+    addEm.setAttribute('class','pink');
+    document.querySelector('.js8-6').appendChild(addEm); //**//新增(附加)一個子結點在最後(原本寫在html裡面的東西不會被清掉)
+}
+js8_6();
+
+//js8-7
+function js8_7(){
+    var lunch = [{
+            food:"便當",
+        },{
+            food: "拉麵",
+        }, {
+            food: "義大利麵",
+        }]
+
+        var lunchLen = lunch.length;
+        for (i = 0; i < lunchLen; i++) {
+            var em = document.createElement('li');
+            em.textContent = lunch[i].food;
+            document.querySelector('.js8-7').appendChild(em);
+        }
+}
+js8_7();
+
+//js8-8
+function js8_8() {
+    document.getElementById('js8-8Id').onclick = function () { 
+        alert('click!');
+     }
+}
+js8_8();
